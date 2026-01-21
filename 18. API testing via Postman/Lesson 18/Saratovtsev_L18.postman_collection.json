@@ -1,0 +1,494 @@
+{
+  "info": {
+    "_postman_id": "ccfb1511-062a-4fa7-9413-ab9688922436",
+    "name": "Saratovtsev_L18",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "48046458",
+    "_collection_link": "https://go.postman.co/collection/48046458-ccfb1511-062a-4fa7-9413-ab9688922436?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Створити користувача з дійсними даними",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "var jsonData = pm.response.json();",
+              "pm.environment.set(\"userId\", jsonData.id);",
+              "",
+              "pm.test(\"Код статусу 200 або 201\", function () {",
+              "    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+              "});",
+              "",
+              "pm.test(\"Час відгуку менше 5000 мс\", function () {",
+              "    pm.expect(pm.response.responseTime).to.be.below(5000);",
+              "});",
+              "",
+              "pm.test(\"Тіло відповіді містить ім'я та вік\", function () {",
+              "    var requestBody = JSON.parse(pm.request.body.raw);",
+              "    var responseData = pm.response.json();",
+              "    ",
+              "    pm.expect(responseData.name).to.eql(requestBody.name);",
+              "    pm.expect(responseData.age).to.eql(requestBody.age);",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n\"name\": \"{{name}}\",\r\n\"age\": {{age}},\r\n\"gender\": \"{{gender}}\",\r\n\"city\": \"{{city}}\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}{{resource}}",
+          "host": [
+            "{{baseUrl}}{{resource}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Створити користувача з недійсною довжиною імені",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Код статусу 400\", function () {",
+              "    pm.response.to.have.status(400);",
+              "});",
+              "",
+              "pm.test(\"Час відгуку менше 5000 мс\", function () {",
+              "    pm.expect(pm.response.responseTime).to.be.below(5000);",
+              "});",
+              "",
+              "pm.test(\"Відповідь містить повідомлення про помилку\", function () {",
+              "    pm.expect(pm.response.text()).to.include(\"Validation error\");",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n\"name\": \"Alex\",\r\n\"age\": {{age}},\r\n\"gender\": \"{{gender}}\",\r\n\"city\": \"{{city}}\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}{{resource}}",
+          "host": [
+            "{{baseUrl}}{{resource}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Отримати існуючого користувача за дійсним ідентифікатором",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Код статусу 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test(\"Час відгуку менше 5000 мс\", function () {",
+              "    pm.expect(pm.response.responseTime).to.be.below(5000);",
+              "});",
+              "",
+              "pm.test(\"Перевірте значення тіла\", function () {",
+              "    var jsonData = pm.response.json();",
+              "    ",
+              "    pm.expect(jsonData.id).to.be.a('string');",
+              "    pm.expect(jsonData.id).to.match(/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i);",
+              "    ",
+              "    var requestedUserId = pm.request.url.query.get(\"id\");",
+              "    pm.expect(jsonData.id).to.eql(requestedUserId);",
+              "    ",
+              "    pm.expect(jsonData.gender).to.eql(\"male\");",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "{{baseUrl}}{{resource}}?id={{userId}}",
+          "host": [
+            "{{baseUrl}}{{resource}}"
+          ],
+          "query": [
+            {
+              "key": "id",
+              "value": "{{userId}}"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Отримати користувача з неіснуючим ідентифікатором",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "var jsonData = pm.response.text();",
+              "",
+              "pm.test(\"Код статуса 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test(\"Время ответа менее 2000мс\", function () {",
+              "    pm.expect(pm.response.responseTime).to.be.below(2000);",
+              "});",
+              "",
+              "pm.test(\"Тело ответа содержит сообщение об ошибке\", function () {",
+              "    pm.expect(jsonData).to.include(\"No users found\");",
+              "});",
+              "",
+              "pm.test(\"Відповідь не повинна містити дані користувача\", function () {",
+              "    pm.expect(jsonData).to.not.include(\"name\");",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "{{baseUrl}}{{resource}}?id=12345-wrong-id",
+          "host": [
+            "{{baseUrl}}{{resource}}"
+          ],
+          "query": [
+            {
+              "key": "id",
+              "value": "12345-wrong-id"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Оновіть користувача дійсними данимиest",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Статус код 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test(\"Время ответа менее 4000мс\", function () {",
+              "    pm.expect(pm.response.responseTime).to.be.below(4000);",
+              "});",
+              "",
+              "pm.test(\"Перевірка оновлених даних користувача\", function () {",
+              "    var jsonData = pm.response.json();",
+              "    ",
+              "    pm.expect(jsonData.name).to.eql(pm.variables.get(\"updatedName\"));",
+              "    pm.expect(jsonData.age).to.eql(parseInt(pm.variables.get(\"updatedAge\")));",
+              "    pm.expect(jsonData.gender).to.eql(pm.variables.get(\"updatedGender\"));",
+              "    pm.expect(jsonData.city).to.eql(pm.variables.get(\"updatedCity\"));",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"id\": \"{{userId}}\",\r\n    \"name\": \"{{updatedName}}\",\r\n    \"age\": {{updatedAge}},\r\n    \"gender\": \"{{updatedGender}}\",\r\n    \"city\": \"{{updatedCity}}\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}{{resource}}",
+          "host": [
+            "{{baseUrl}}{{resource}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Оновити користувача з недійсною статтю",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Статус код 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Время ответа менее 2000мс\", function () {\r",
+              "    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Перевірка повідомлення про помилку\", function () {\r",
+              "    var jsonData = pm.response.json();\r",
+              "    pm.expect(jsonData).to.have.property('error');\r",
+              "    pm.expect(jsonData.error).to.include(\"string.min\"); \r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"id\": \"{{userId}}\",\r\n    \"name\": \"{{updatedName}}\",\r\n    \"age\": {{updatedAge}},\r\n    \"gender\": \"alien\",\r\n    \"city\": \"{{updatedCity}}\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}{{resource}}",
+          "host": [
+            "{{baseUrl}}{{resource}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Видалити з неіснуючим ідентифікатором",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Час відповіді менше 5000мс\", function () {\r",
+              "    pm.expect(pm.response.responseTime).to.be.below(5000);\r",
+              "});\r",
+              "\r",
+              "pm.test(\"Перевірка повідомлення про відсутність користувача\", function () {\r",
+              "    var responseText = pm.response.text();\r",
+              "    \r",
+              "    // Перевірка 1: Наявність фрази \"No user\"\r",
+              "    pm.expect(responseText).to.include(\"No user\");\r",
+              "    \r",
+              "    // Перевірка 2: Наявність фрази \"found\"\r",
+              "    pm.expect(responseText).to.include(\"found\");\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "{{baseUrl}}{{resource}}?id=12345-wrong-id",
+          "host": [
+            "{{baseUrl}}{{resource}}"
+          ],
+          "query": [
+            {
+              "key": "id",
+              "value": "12345-wrong-id"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Видалити існуючого користувача за ідентифікатором",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test(\"Время ответа менее 2000мс\", function () {",
+              "    pm.expect(pm.response.responseTime).to.be.below(3000);",
+              "});",
+              "",
+              "pm.test(\"Check delete message\", function () {",
+              "    var responseText = pm.response.text();",
+              "    pm.expect(responseText).to.include(\"User is deleted\");",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": ""
+        },
+        "url": {
+          "raw": "{{baseUrl}}{{resource}}?id={{userId}}",
+          "host": [
+            "{{baseUrl}}{{resource}}"
+          ],
+          "query": [
+            {
+              "key": "id",
+              "value": "{{userId}}"
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "em.staging.api.onereach.ai/http/1b3bebb7-e882-4f1e-a74b-ee381bfa69d6"
+    },
+    {
+      "key": "resource",
+      "value": "/users"
+    },
+    {
+      "key": "userId",
+      "value": ""
+    },
+    {
+      "key": "name",
+      "value": "Eduard"
+    },
+    {
+      "key": "age",
+      "value": "33"
+    },
+    {
+      "key": "gender",
+      "value": "male"
+    },
+    {
+      "key": "city",
+      "value": "Dnipro"
+    },
+    {
+      "key": "updatedName",
+      "value": "Artem"
+    },
+    {
+      "key": "updatedAge",
+      "value": "32"
+    },
+    {
+      "key": "updatedGender",
+      "value": "male"
+    },
+    {
+      "key": "updatedCity",
+      "value": "Lviv"
+    }
+  ]
+}

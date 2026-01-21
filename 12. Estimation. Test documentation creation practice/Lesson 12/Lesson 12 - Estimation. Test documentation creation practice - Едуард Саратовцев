@@ -1,0 +1,97 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36" version="29.2.9">
+  <diagram name="COVID Certificate State Diagram Cleaned" id="it_013ku1hJlG08Ag80i">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2vrFp8smDPgMiDNTovPx-1" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;strokeWidth=2;" value="Відсутній / недійсний&#xa;(старт)" vertex="1">
+          <mxGeometry height="100" width="180" x="50" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="2vrFp8smDPgMiDNTovPx-2" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=2;" value="Тимчасовий&#xa;сертифікат" vertex="1">
+          <mxGeometry height="100" width="180" x="450" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="2vrFp8smDPgMiDNTovPx-3" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;strokeWidth=2;" value="Жовтий&#xa;сертифікат" vertex="1">
+          <mxGeometry height="100" width="180" x="450" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="2vrFp8smDPgMiDNTovPx-4" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;strokeWidth=2;" value="Зелений&#xa;сертифікат" vertex="1">
+          <mxGeometry height="100" width="180" x="850" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="2vrFp8smDPgMiDNTovPx-5" edge="1" parent="1" source="2vrFp8smDPgMiDNTovPx-1" style="edgeStyle=curved;html=1;endArrow=block;strokeColor=#0050ef;strokeWidth=2;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="2vrFp8smDPgMiDNTovPx-2" value="Лабораторний тест">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="280" y="150" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2vrFp8smDPgMiDNTovPx-6" edge="1" parent="1" source="2vrFp8smDPgMiDNTovPx-3" style="edgeStyle=curved;html=1;endArrow=block;strokeColor=#0050ef;strokeWidth=2;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="2vrFp8smDPgMiDNTovPx-2" value="Тест (пріоритет)">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2vrFp8smDPgMiDNTovPx-7" edge="1" parent="1" source="2vrFp8smDPgMiDNTovPx-4" style="edgeStyle=curved;html=1;endArrow=block;strokeColor=#0050ef;strokeWidth=2;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="2vrFp8smDPgMiDNTovPx-2" value="Тест (пріоритет)">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="50" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2vrFp8smDPgMiDNTovPx-8" edge="1" parent="1" source="2vrFp8smDPgMiDNTovPx-1" style="edgeStyle=straight;html=1;endArrow=block;strokeWidth=2;" target="2vrFp8smDPgMiDNTovPx-3" value="1 доза" />
+        <mxCell id="2vrFp8smDPgMiDNTovPx-9" edge="1" parent="1" source="2vrFp8smDPgMiDNTovPx-3" style="edgeStyle=straight;html=1;endArrow=block;strokeWidth=2;" target="2vrFp8smDPgMiDNTovPx-4" value="2 доза" />
+        <mxCell id="2vrFp8smDPgMiDNTovPx-10" edge="1" parent="1" source="2vrFp8smDPgMiDNTovPx-4" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;strokeWidth=2;curved=1;exitX=1;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="2vrFp8smDPgMiDNTovPx-4" value="Бустер (продовження)">
+          <mxGeometry relative="1" x="0.2" y="20" as="geometry">
+            <mxPoint x="940" y="260" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2vrFp8smDPgMiDNTovPx-11" edge="1" parent="1" source="2vrFp8smDPgMiDNTovPx-2" style="edgeStyle=curved;html=1;endArrow=block;strokeDashArray=1 2;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="2vrFp8smDPgMiDNTovPx-1" value="Тест закінчився" />
+        <mxCell id="2vrFp8smDPgMiDNTovPx-12" edge="1" parent="1" source="2vrFp8smDPgMiDNTovPx-4" style="edgeStyle=curved;html=1;endArrow=block;strokeDashArray=1 2;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="2vrFp8smDPgMiDNTovPx-1" value="9 міс. минуло">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="940" y="550" />
+              <mxPoint x="140" y="550" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2vrFp8smDPgMiDNTovPx-13" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeWidth=2;" value="Відсутній / недійсний" vertex="1">
+          <mxGeometry height="80" width="160" x="50" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="2vrFp8smDPgMiDNTovPx-14" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeWidth=2;fontStyle=1" value="Тимчасовий" vertex="1">
+          <mxGeometry height="80" width="160" x="400" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="2vrFp8smDPgMiDNTovPx-15" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeWidth=2;" value="Жовтий" vertex="1">
+          <mxGeometry height="80" width="160" x="400" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="2vrFp8smDPgMiDNTovPx-16" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeWidth=2;fontStyle=1" value="Зелений" vertex="1">
+          <mxGeometry height="80" width="160" x="750" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="2vrFp8smDPgMiDNTovPx-17" edge="1" parent="1" source="2vrFp8smDPgMiDNTovPx-13" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#0066CC;strokeWidth=2;verticalAlign=bottom" target="2vrFp8smDPgMiDNTovPx-14" value="Лабораторний тест">
+          <mxGeometry relative="1" x="-0.3" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2vrFp8smDPgMiDNTovPx-18" edge="1" parent="1" source="2vrFp8smDPgMiDNTovPx-15" style="edgeStyle=curved=1;rounded=1;html=1;strokeColor=#0066CC;strokeWidth=2;exitX=0.5;exitY=0;entryX=0;entryY=0.5;" target="2vrFp8smDPgMiDNTovPx-14" value="Тест (Пріоритет)">
+          <mxGeometry relative="1" x="0.1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2vrFp8smDPgMiDNTovPx-19" edge="1" parent="1" source="2vrFp8smDPgMiDNTovPx-16" style="edgeStyle=curved=1;rounded=1;html=1;strokeColor=#0066CC;strokeWidth=2;exitX=0.5;exitY=0;entryX=1;entryY=0.5;" target="2vrFp8smDPgMiDNTovPx-14" value="Тест (Пріоритет)">
+          <mxGeometry relative="1" x="0.1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2vrFp8smDPgMiDNTovPx-20" edge="1" parent="1" source="2vrFp8smDPgMiDNTovPx-13" style="edgeStyle=straight;html=1;strokeColor=#82b366;strokeWidth=2;" target="2vrFp8smDPgMiDNTovPx-15" value="1 доза">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2vrFp8smDPgMiDNTovPx-21" edge="1" parent="1" source="2vrFp8smDPgMiDNTovPx-15" style="edgeStyle=straight;html=1;strokeColor=#82b366;strokeWidth=2;" target="2vrFp8smDPgMiDNTovPx-16" value="2 доза">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2vrFp8smDPgMiDNTovPx-22" edge="1" parent="1" source="2vrFp8smDPgMiDNTovPx-16" style="edgeStyle=orthogonalEdgeStyle;curved=1;html=1;strokeColor=#82b366;strokeWidth=2;exitX=0.5;exitY=1;entryX=1;entryY=1;" target="2vrFp8smDPgMiDNTovPx-16" value="Бустер (+9 міс)">
+          <mxGeometry relative="1" x="0.5" y="20" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2vrFp8smDPgMiDNTovPx-23" edge="1" parent="1" source="2vrFp8smDPgMiDNTovPx-14" style="edgeStyle=curved=1;html=1;strokeColor=#999999;dashed=1;exitX=0;exitY=0.5;entryX=0.5;entryY=0;" target="2vrFp8smDPgMiDNTovPx-13" value="Тест закінчився">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2vrFp8smDPgMiDNTovPx-24" edge="1" parent="1" source="2vrFp8smDPgMiDNTovPx-16" style="edgeStyle=curved=1;html=1;strokeColor=#999999;dashed=1;exitX=0.5;exitY=1;entryX=1;entryY=1;" target="2vrFp8smDPgMiDNTovPx-13" value="Термін вичерпано">
+          <mxGeometry relative="1" x="-0.7" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

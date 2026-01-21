@@ -1,0 +1,109 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36" version="29.2.9">
+  <diagram name="Cat App State Diagram" id="sQcXVZZVxZtUV1vPiHG8">
+    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="p7rfA0muq86PbbJnJcgS-115" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#FFF2CC;" value="Start" vertex="1">
+          <mxGeometry height="60" width="60" x="-40" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="p7rfA0muq86PbbJnJcgS-116" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Неавторизований" vertex="1">
+          <mxGeometry height="80" width="120" x="80" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="p7rfA0muq86PbbJnJcgS-117" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" value="Авторизація&#xa;(Вхід/Реєстрація)" vertex="1">
+          <mxGeometry height="80" width="130" x="300" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="authErrorState" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" value="Помилка авторизації" vertex="1">
+          <mxGeometry height="70" width="160" x="285" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="p7rfA0muq86PbbJnJcgS-118" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;" value="Авторизований: Стрічка" vertex="1">
+          <mxGeometry height="80" width="200" x="620" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="p7rfA0muq86PbbJnJcgS-119" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Перегляд фото" vertex="1">
+          <mxGeometry height="80" width="200" x="620" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="p7rfA0muq86PbbJnJcgS-120" parent="1" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;" value="Завантаження фото" vertex="1">
+          <mxGeometry height="80" width="180" x="940" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="p7rfA0muq86PbbJnJcgS-121" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="Взаємодія&#xa;(Лайк/Коментар)" vertex="1">
+          <mxGeometry height="80" width="180" x="940" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="p7rfA0muq86PbbJnJcgS-122" parent="1" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;fillColor=#dae8fc;" value="Поділитися&#xa;(Вибір каналу)" vertex="1">
+          <mxGeometry height="60" width="180" x="630" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="p7rfA0muq86PbbJnJcgS-123" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;" value="Підтвердження:&#xa;&quot;Надіслано&quot;" vertex="1">
+          <mxGeometry height="60" width="180" x="630" y="610" as="geometry" />
+        </mxCell>
+        <mxCell id="p7rfA0muq86PbbJnJcgS-124" edge="1" parent="1" source="p7rfA0muq86PbbJnJcgS-115" target="p7rfA0muq86PbbJnJcgS-116">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p7rfA0muq86PbbJnJcgS-125" edge="1" parent="1" source="p7rfA0muq86PbbJnJcgS-116" style="edgeStyle=orthogonalEdgeStyle;rounded=0;" target="p7rfA0muq86PbbJnJcgS-117" value="Увійти">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p7rfA0muq86PbbJnJcgS-126" edge="1" parent="1" source="p7rfA0muq86PbbJnJcgS-117" style="edgeStyle=orthogonalEdgeStyle;rounded=0;" target="p7rfA0muq86PbbJnJcgS-118" value="Підтвердити дані [валідні] &#xa;/ Вхід успішний">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="auth-to-error" edge="1" parent="1" source="p7rfA0muq86PbbJnJcgS-117" style="edgeStyle=orthogonalEdgeStyle;rounded=0;fontColor=#FF0000;strokeColor=#FF0000;exitX=0.25;exitY=1;entryX=0.25;entryY=0;" target="authErrorState" value="Підтвердити дані [невірні]&#xa;/ Показати помилку">
+          <mxGeometry relative="1" x="0.0039" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="error-to-auth" edge="1" parent="1" source="authErrorState" style="edgeStyle=orthogonalEdgeStyle;rounded=0;exitX=0.75;exitY=0;entryX=0.75;entryY=1;" target="p7rfA0muq86PbbJnJcgS-117" value="Спробувати ще раз">
+          <mxGeometry relative="1" x="0.5294" y="-2" as="geometry">
+            <mxPoint x="1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="error-cancel" edge="1" parent="1" source="authErrorState" style="edgeStyle=orthogonalEdgeStyle;rounded=0;" target="p7rfA0muq86PbbJnJcgS-116" value="Скасувати">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="280" y="335" />
+              <mxPoint x="140" y="335" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="p7rfA0muq86PbbJnJcgS-127" edge="1" parent="1" source="p7rfA0muq86PbbJnJcgS-117" style="edgeStyle=orthogonalEdgeStyle;rounded=0;exitX=0.5;exitY=0;entryX=0.5;entryY=0;" target="p7rfA0muq86PbbJnJcgS-116" value="Скасувати">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="365" y="140" />
+              <mxPoint x="140" y="140" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="p7rfA0muq86PbbJnJcgS-128" edge="1" parent="1" source="p7rfA0muq86PbbJnJcgS-118" target="p7rfA0muq86PbbJnJcgS-119" value="Тап по фото">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p7rfA0muq86PbbJnJcgS-129" edge="1" parent="1" source="p7rfA0muq86PbbJnJcgS-119" style="edgeStyle=orthogonalEdgeStyle;rounded=0;exitX=0.15;exitY=0;entryX=0.15;entryY=1;" target="p7rfA0muq86PbbJnJcgS-118" value="Назад">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p7rfA0muq86PbbJnJcgS-130" edge="1" parent="1" source="p7rfA0muq86PbbJnJcgS-118" target="p7rfA0muq86PbbJnJcgS-120" value="Додати +">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p7rfA0muq86PbbJnJcgS-131" edge="1" parent="1" source="p7rfA0muq86PbbJnJcgS-120" style="edgeStyle=orthogonalEdgeStyle;rounded=0;exitX=0.5;exitY=1;entryX=0.75;entryY=1;" target="p7rfA0muq86PbbJnJcgS-118" value="Опубліковано">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1030" y="300" />
+              <mxPoint x="770" y="300" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="p7rfA0muq86PbbJnJcgS-133" edge="1" parent="1" source="p7rfA0muq86PbbJnJcgS-119" target="p7rfA0muq86PbbJnJcgS-121" value="Лайк/Надіслати">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p7rfA0muq86PbbJnJcgS-135" edge="1" parent="1" source="p7rfA0muq86PbbJnJcgS-119" target="p7rfA0muq86PbbJnJcgS-122" value="Поділитися">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p7rfA0muq86PbbJnJcgS-136" edge="1" parent="1" source="p7rfA0muq86PbbJnJcgS-122" target="p7rfA0muq86PbbJnJcgS-123" value="Обрати канал">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p7rfA0muq86PbbJnJcgS-137" edge="1" parent="1" source="p7rfA0muq86PbbJnJcgS-123" style="edgeStyle=orthogonalEdgeStyle;rounded=0;exitX=1;exitY=0.5;entryX=1;entryY=0.75;" target="p7rfA0muq86PbbJnJcgS-119" value="OK (назад)">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="880" y="640" />
+              <mxPoint x="880" y="420" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
