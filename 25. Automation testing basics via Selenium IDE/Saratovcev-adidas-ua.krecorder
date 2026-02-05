@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="content-type" />
+<title>Saratovcev-adidas-ua</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3" data-tags="">Пошук товару</td></tr>
+</thead>
+<tbody>
+<tr><td>open</td><td>https://www.adidas.ua/<datalist></datalist></td><td></td></tr>
+<tr><td>store</td><td>Superstar<datalist></datalist></td><td>modelName</td></tr>
+<tr><td>waitForElementPresent</td><td>css=input[name='search-input']<datalist><option>css=input[name='q']</option><option>css=input[name='search-input']</option></datalist></td><td></td></tr>
+<tr><td>click</td><td>css=input[name='search-input']<datalist><option>css=input[name='q']</option><option>css=input[name='search-input']</option></datalist></td><td></td></tr>
+<tr><td>type</td><td>xpath=//input[@name='search-input']<datalist><option>xpath=//input[@name='q']</option><option>xpath=//input[@name='search-input']</option></datalist></td><td>${modelName}</td></tr>
+<tr><td>sendKeys</td><td>xpath=//input[@name='search-input']<datalist><option>xpath=//input[@name='q']</option><option>xpath=//input[@name='search-input']</option></datalist></td><td>${KEY_ENTER}</td></tr>
+<tr><td>pause</td><td>3000<datalist><option>3000</option></datalist></td><td></td></tr>
+<tr><td>verifyElementPresent</td><td>xpath=(//div[contains(@class, 'product')])[1]<datalist><option>css=.plp-grid___1FP1J</option><option>css=data-v-766bf18f</option><option>css=data-product-id="78670"</option><option>xpath=(//div[contains(@class, 'product')])[1]</option></datalist></td><td></td></tr>
+<tr><td>verifyElementPresent</td><td>xpath=//div[@class='product__title' and contains(text(), 'Superstar')]<datalist><option>css=.product__title</option><option>xpath=//div[@class='product__title' and contains(text(), 'Superstar')]</option></datalist></td><td>"${modelName}"</td></tr>
+<tr><td>click</td><td>xpath=(//div[contains(@class, 'product__content')])[1]<datalist><option>xpath=(//div[contains(@class, 'glass-product-card')])[1]</option><option>Target: xpath=(//div[contains(@class, 'product__content')])[1]</option><option>xpath=(//div[contains(@class, 'product__content')])[1]</option></datalist></td><td></td></tr>
+</tbody></table>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3" data-tags="">Навігація через меню</td></tr>
+</thead>
+<tbody>
+<tr><td>open</td><td>https://www.adidas.ua/<datalist></datalist></td><td></td></tr>
+<tr><td>store</td><td>Жінки<datalist><option>Жінки</option><option>ЖІНКИ</option></datalist></td><td>categoryName</td></tr>
+<tr><td>mouseOver</td><td>xpath=//a[contains(@class, 'header-menu__item__link') and contains(text(), '${categoryName}')]<datalist><option>xpath=//a[contains(@class, 'header-menu__item__link') and contains(text(), '${categoryName}')]</option></datalist></td><td></td></tr>
+<tr><td>waitForElementPresent</td><td>xpath=//li[contains(., '${categoryName}')]//a[contains(text(), 'ОДЯГ')]<datalist><option>xpath=//a[contains(text(), 'ОДЯГ')]</option><option>xpath=//li[contains(., '${categoryName}')]//a[contains(text(), 'ОДЯГ')]</option></datalist></td><td>5000</td></tr>
+<tr><td>click</td><td>xpath=//li[contains(., '${categoryName}')]//a[contains(text(), 'ОДЯГ')]<datalist><option>xpath=//a[contains(@class, 'header-menu__item__link') and contains(text(), '${categoryName}')]</option><option>xpath=//a[contains(text(), 'ОДЯГ')]</option><option>xpath=//li[contains(., '${categoryName}')]//a[contains(text(), 'ОДЯГ')]</option></datalist></td><td></td></tr>
+<tr><td>waitForElementPresent</td><td>css=h1<datalist><option>css=h1</option></datalist></td><td>10000</td></tr>
+<tr><td>verifyElementPresent</td><td>xpath=//h1[contains(., 'Одяг') or contains(., 'ОДЯГ')]<datalist><option></option><option>xpath=//h1[contains(., 'Одяг') or contains(., 'ОДЯГ')]</option></datalist></td><td></td></tr>
+</tbody></table>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3" data-tags="">Перевірка Футера</td></tr>
+</thead>
+<tbody>
+<tr><td>open</td><td>https://www.adidas.ua/<datalist><option>https://www.adidas.ua/</option></datalist></td><td></td></tr>
+<tr><td>pause</td><td>300<datalist><option>3000</option><option>300</option></datalist></td><td></td></tr>
+<tr><td>runScript</td><td>window.scrollTo(0, document.body.scrollHeight)<datalist><option>window.scrollTo(0, document.body.scrollHeight)</option></datalist></td><td></td></tr>
+<tr><td>waitForElementPresent</td><td>xpath=//div[contains(@class,'footer')]//a[contains(@href, '/top-sellers')]<datalist><option>1000</option><option>waitForElementPresent</option><option>xpath=//a[contains(@href, '/top-sellers') and contains(text(), 'Бестселери')]</option><option>xpath=//div[contains(@class,'footer')]//a[contains(@href, '/top-sellers')]</option></datalist></td><td>5000</td></tr>
+<tr><td>click</td><td>xpath=//div[contains(@class,'footer')]//a[contains(@href, '/top-sellers')]<datalist><option>xpath=//a[contains(@href, '/top-sellers') and contains(text(), 'Бестселери')]</option><option>xpath=//div[contains(@class,'footer')]//a[contains(@href, '/top-sellers')]</option></datalist></td><td></td></tr>
+<tr><td>waitForElementPresent</td><td>css=h1<datalist><option>css=h1</option></datalist></td><td>10000</td></tr>
+<tr><td>verifyElementPresent</td><td>xpath=//h1[contains(translate(., 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'top sellers')]<datalist><option>xpath=//h1[contains(., 'Бестселери') or contains(., 'БЕСТСЕЛЕРИ')]</option><option>xpath=//h1[contains(translate(., 'ABCDEFGHIJKLMNOPQRSTUVWXYZ', 'abcdefghijklmnopqrstuvwxyz'), 'top sellers')]</option></datalist></td><td></td></tr>
+</tbody></table>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3" data-tags="">Негативний пошук</td></tr>
+</thead>
+<tbody>
+<tr><td>open</td><td>https://www.adidas.ua/<datalist><option>https://www.adidas.ua/</option></datalist></td><td></td></tr>
+<tr><td>waitForElementPresent</td><td>name=search-input<datalist><option>class=search-button-icon</option><option>name=search-input</option></datalist></td><td>5000</td></tr>
+<tr><td>type</td><td>name=search-input<datalist><option>name=search-input</option></datalist></td><td>asdfghjkl</td></tr>
+<tr><td>sendKeys</td><td>name=search-input<datalist><option>name=search-input</option></datalist></td><td>${KEY_ENTER}</td></tr>
+<tr><td>waitForElementPresent</td><td>xpath=//div[contains(text(), 'Ми не змогли знайти')]<datalist><option>css=h1</option><option>css=.search-no-result__title, .search-results__empty</option><option>xpath=//div[contains(text(), 'Ми не змогли знайти')]</option></datalist></td><td>10000</td></tr>
+<tr><td>verifyElementPresent</td><td>xpath=//div[contains(@class, 'title')]<datalist><option>xpath=//h1[contains(translate(., 'SAMBA', 'samba'), 'samba')]</option><option>xpath=//div[contains(@class, 'title')]</option></datalist></td><td>Ми не змогли знайти товари по запиту "asdfghjkl"</td></tr>
+<tr><td>verifyElementPresent</td><td>xpath=//div[contains(., 'Не здавайся')]<datalist><option>xpath=//div[contains(text(), 'Спробуйте ще раз')]</option><option>xpath=//div[contains(., 'Не здавайся')]</option></datalist></td><td></td></tr>
+</tbody></table>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3" data-tags="">Робота з кошиком та перевірка лічильника</td></tr>
+</thead>
+<tbody>
+<tr><td>open</td><td>https://www.adidas.ua/<datalist><option>https://www.adidas.ua/</option><option>https://www.adidas.ua/</option></datalist></td><td></td></tr>
+<tr><td>mouseOver</td><td>xpath=//a[@href='/choloviki-store']<datalist><option>xpath=//a[@href='/choloviki-store']</option></datalist></td><td></td></tr>
+<tr><td>waitForElementPresent</td><td>xpath=//a[@href='/choloviki/vzuttya/krosivki']<datalist><option>xpath=//a[contains(@href, '/choloviki')]</option><option>xpath=//a[contains(@href, '/choloviki')]</option><option>xpath=//a[@href='/choloviki/vzuttya/krosivki']</option></datalist></td><td>5000</td></tr>
+<tr><td>click</td><td>xpath=//a[@href='/choloviki/vzuttya/krosivki']<datalist><option>xpath=//a[contains(@href, '/choloviki') and contains(@class, 'nav')]</option><option>xpath=//a[contains(@href, '/choloviki') and contains(@class, 'nav')]</option><option>xpath=//a[@href='/choloviki/vzuttya/krosivki']</option></datalist></td><td></td></tr>
+<tr><td>waitForElementPresent</td><td>xpath=//div[contains(@class, 'product')]<datalist><option>xpath=(//div[contains(@class, 'product-card')])[1]</option><option>xpath=(//div[contains(@class, 'product-card')])[1]</option><option>xpath=//div[contains(@class, 'product')]</option></datalist></td><td>7000</td></tr>
+<tr><td>click</td><td>xpath=(//div[contains(@class, 'product')]//a[contains(@class, 'product__image')])[1]<datalist><option>xpath=(//div[contains(@class, 'product-card')])[1]//a</option><option>xpath=(//div[contains(@class, 'product-card')])[1]//a</option><option>xpath=(//div[contains(@class, 'product')]//a[contains(@class, 'product__image')])[1]</option></datalist></td><td></td></tr>
+<tr><td>waitForElementPresent</td><td>xpath=//ul[contains(@class, 'product__sizes--list')]<datalist><option>xpath=//div[contains(@class, 'size-selector')]</option><option>xpath=//div[contains(@class, 'size-selector')]</option><option>xpath=//div[contains(@class, 'size')]</option><option>xpath=//ul[contains(@class, 'product__sizes--list')]</option></datalist></td><td>10000</td></tr>
+<tr><td>click</td><td>xpath=(//li[contains(@class, 'product__sizes--item')])[1]<datalist><option>xpath=(//div[contains(@class, 'size-item') and not(contains(@class, 'disabled'))])[1]</option><option>xpath=(//div[contains(@class, 'size-item') and not(contains(@class, 'disabled'))])[1]</option><option>xpath=(//div[contains(@class, 'size-item') or contains(@class, 'size')])[1]</option><option>xpath=(//li[contains(@class, 'product__sizes--item')])[1]</option></datalist></td><td></td></tr>
+<tr><td>click</td><td>xpath=//button[contains(@class, 'button-main__btn') and contains(., 'кошик')]<datalist><option>xpath=//button[contains(., 'Додати в кошик')]</option><option>xpath=//button[contains(., 'Додати в кошик')]</option><option>xpath=(//div[contains(@class, 'size-item') or contains(@class, 'size')])[1]</option><option>xpath=//button[contains(@class, 'add-to-cart') or contains(., 'кошик')]</option><option>xpath=//button[contains(@class, 'button-main__btn') and contains(., 'кошик')]</option></datalist></td><td></td></tr>
+<tr><td>pause</td><td>3000<datalist><option>2000</option><option>2000</option><option>3000</option></datalist></td><td></td></tr>
+<tr><td>click</td><td>xpath=//a[@href='/cart' and contains(@class, 'button-icon__btn')]<datalist><option>css=.header-icon-container__cart</option><option>css=.header-icon-container__cart</option><option>xpath=//a[@href='/cart' and contains(@class, 'button-icon__btn')]</option></datalist></td><td></td></tr>
+<tr><td>verifyElementPresent</td><td>xpath=//div[contains(@class, 'cart__title')]<datalist><option>xpath=//h1</option><option>xpath=//h1[contains(., 'Кошик')]</option><option>xpath=//h1[contains(., 'Кошик') or contains(., 'Корзина')]</option><option>xpath=//div[contains(@class, 'cart__title')]</option></datalist></td><td>5000</td></tr>
+<tr><td>assertText</td><td>xpath=//a[contains(@class, 'product__info__head__title')]<datalist><option>xpath=//a[contains(@class, 'product__info__head__title')]</option></datalist></td><td>Кросівки Dropset 4 Power Training</td></tr>
+<tr><td>verifyElementPresent</td><td>xpath=//div[contains(@class, 'product__info__size') and contains(., '6 UK')]<datalist><option>xpath=//div[contains(@class, 'product__info__size') and contains(., '6 UK')]</option></datalist></td><td></td></tr>
+<tr><td>assertElementPresent</td><td>xpath=//div[contains(@class, 'cart__checkout')]<datalist><option>xpath=//div[contains(@class, 'cart__checkout')]</option></datalist></td><td></td></tr>
+<tr><td>click</td><td>xpath=//div[contains(@class, 'product__actions--remove')]<datalist><option>xpath=//div[contains(@class, 'product__actions--remove')]</option></datalist></td><td></td></tr>
+<tr><td>pause</td><td>2000<datalist><option>2000</option></datalist></td><td></td></tr>
+<tr><td>verifyText</td><td>xpath=//span[contains(@class, 'cart__tooltip__text')]<datalist><option>xpath=//span[contains(@class, 'cart__tooltip__text')]</option></datalist></td><td>У кошику немає товарів</td></tr>
+</tbody></table>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3" data-tags="">Перевірка переходу на сторінку авторизації та валідація форми входу</td></tr>
+</thead>
+<tbody>
+<tr><td>open</td><td>https://www.adidas.ua/<datalist></datalist></td><td></td></tr>
+<tr><td>waitForElementPresent</td><td>css=.header-icon-container__profile<datalist></datalist></td><td>5000</td></tr>
+<tr><td>click</td><td>css=.header-icon-container__profile a<datalist><option>class=profile_icon</option><option>css=.header-icon-container__profile a</option></datalist></td><td></td></tr>
+<tr><td>waitForElementPresent</td><td>css=.login__title<datalist><option>2000</option><option>css=.login__title</option></datalist></td><td>5000</td></tr>
+<tr><td>assertText</td><td>css=.login__title<datalist><option>id=login-form</option><option>css=.login__title</option></datalist></td><td>Увійти</td></tr>
+<tr><td>assertElementPresent</td><td>xpath=//input[@type='text']<datalist><option>xpath=//button[@type='submit']</option><option>xpath=//input[@type='text']</option></datalist></td><td>(Поле Email)</td></tr>
+<tr><td>assertElementPresent</td><td>xpath=//input[@type='password']<datalist><option>name=email</option><option>xpath=//input[@type='password']</option></datalist></td><td>(Поле Пароль)</td></tr>
+<tr><td>assertText</td><td>css=.login-form__forgot-pass .button-link__text<datalist><option>css=button</option><option>css=.login-form__forgot-pass .button-link__text</option></datalist></td><td>Забув пароль?</td></tr>
+<tr><td>assertElementPresent</td><td>css=.login-form__button .button-main__btn<datalist><option>xpath=//div[@class='error-message']</option><option>css=.login-form__button .button-main__btn</option></datalist></td><td>(Кнопка Увійти)</td></tr>
+<tr><td>assertText</td><td>css=.login-create__title<datalist><option>link=Забули пароль?</option><option>css=.login-create__title</option></datalist></td><td>Створити аккаунт</td></tr>
+</tbody></table>
+</body>
+</html>
